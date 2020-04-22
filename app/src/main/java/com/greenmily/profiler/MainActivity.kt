@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity(), IconInteractionCallBack {
             Icondata("https://www.twitter.com/FataiAdele", "Twitter", R.drawable.twitter),
             Icondata("adelefatai@gmail.com", "Email", R.drawable.email),
             Icondata("https://www.youtube.com/adelefatai", "Youtube", R.drawable.youtube),
-            Icondata("bitbucket.com", "Bitbucket", R.drawable.bitbucket),
-            Icondata("dribbble.com", "Dribbble", R.drawable.dribbble)
+            Icondata("https://www.bitbucket.com", "Bitbucket", R.drawable.bitbucket),
+            Icondata("https://www.dribbble.com", "Dribbble", R.drawable.dribbble)
         )
     }
 
@@ -50,27 +50,27 @@ class MainActivity : AppCompatActivity(), IconInteractionCallBack {
 
     override fun onStart() {
         super.onStart()
-        Log.i("Main Activity", "onStart Called")
+        Log.d("Main Activity", "onStart Called")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.i("Main Activity", "onStop Called")
+        Log.d("Main Activity", "onStop Called")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.i("Main Activity", "onPause Called")
+        Log.d("Main Activity", "onPause Called")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.i("Main Activity", "onResume Called")
+        Log.d("Main Activity", "onResume Called")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.i("Main Activity", "onDestroy Called")
+        Log.d("Main Activity", "onDestroy Called")
     }
 
 }
