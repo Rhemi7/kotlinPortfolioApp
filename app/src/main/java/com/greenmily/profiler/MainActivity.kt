@@ -1,19 +1,37 @@
 package com.greenmily.profiler
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.InputBinding
 import android.widget.GridLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_register.view.*
 
 class MainActivity : AppCompatActivity(), IconInteractionCallBack {
+
+    private lateinit var sharedPreferances: SharedPreferances
+
+    companion object Constants {
+        const val USER_SHARED_PREF = "com.greenmily.profiler.PREFERENCES"
+        const val EMAIL = "EMAIL"
+        const val PASSWORD1 = "PASSWORD1"
+        const val FULLNAME = "FULLNAME"
+        const val PASSWORD2 = "PASSWORD2"
+        const val NUMBER = "NUMBER"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        sharedPreferances = SharedPreferances(applicationContext)
+        textView.text = sharedPreferances.getFullName(FULLNAME)
+
+
         with(iconRecycler){
             layoutManager = GridLayoutManager(this@MainActivity, 4)
             adapter = IconAdapter(setData(), this@MainActivity)
@@ -40,6 +58,7 @@ class MainActivity : AppCompatActivity(), IconInteractionCallBack {
             Icondata("https://www.dribbble.com", "Dribbble", R.drawable.dribbble)
         )
     }
+
 
     override fun onClick(item: Icondata) {
         val intent = Intent()
